@@ -2,18 +2,21 @@
 let guess=document.querySelector(".guess");
 let message=document.querySelector(".message");
 const check_btn=document.querySelector(".check");
+const answer=document.querySelector(".number");
 const body=document.querySelector("body");
+let score = Math.floor((Math.random() * 20) + 1);
 
 function check(number){
-    if (number>15){
-        message.innerText="Too High";
+    if (number>score){
+        message.innerText="📈 Too High";
     }
-    else if (number<15){
-        message.innerText="Too Low";
+    else if (number<score){
+        message.innerText="📉 Too Low";
     }
     else{
         message.innerText="Correct Number!";
         body.style.backgroundColor="#60b347";
+        answer.innerText=score;
     }
 }
 
