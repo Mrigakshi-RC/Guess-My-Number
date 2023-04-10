@@ -1,16 +1,14 @@
 'use strict';
 let guess=document.querySelector(".guess");
-let initialGuess=guess;
 
 let message=document.querySelector(".message");
-let initialMessage=message;
+let initialMessage=message.innerText;
 
 const check_btn=document.querySelector(".check");
-let initialCheck=check_btn;
 
 const answer=document.querySelector(".number");
-const body=document.querySelector("body");
-let initialBody=body;
+let body=document.querySelector("body");
+let initialBody=body.style.backgroundColor;
 
 let again_btn=document.querySelector(".again");
 
@@ -44,8 +42,17 @@ function check(number){
 
 }
 
-function restore(){};
+function restore(){
+    document.querySelector(".guess").value="";
+    document.querySelector(".message").innerText=initialMessage;
+    body.style.backgroundColor=initialBody;
+    correct = Math.floor((Math.random() * 20) + 1);
+    score=20;
+    answer.innerText="?";
+};
 
 check_btn.addEventListener("click", function() {
     check(Number(guess.value));
 })
+
+again_btn.addEventListener("click", restore);
