@@ -1,5 +1,6 @@
 'use strict';
 let guess=document.querySelector(".guess");
+let highscore=document.querySelector(".highscore");
 
 let message=document.querySelector(".message");
 let initialMessage=message.innerText;
@@ -21,6 +22,7 @@ function check(number){
         message.innerText="Correct Number!";
         body.style.backgroundColor="#60b347";
         answer.innerText=correct;
+        highscore.innerText=Math.max(Number(highscore.innerText),score);
     }
     else if (score>1){
         if (number>correct){
